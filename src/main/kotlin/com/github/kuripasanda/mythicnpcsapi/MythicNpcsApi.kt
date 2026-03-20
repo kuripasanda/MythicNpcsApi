@@ -29,6 +29,11 @@ interface MythicNpcsApi {
     fun getNpc(id: String): MythicNpc?
 
     /**
+     * NPCが存在するかどうかを確認します。
+     */
+    fun isExistsNpc(id: String): Boolean
+
+    /**
      * NPCを作成します。
      * @throws AlreadyExistsNpcException 同じIDのNPCが既に存在する場合にスローされます。
      */
