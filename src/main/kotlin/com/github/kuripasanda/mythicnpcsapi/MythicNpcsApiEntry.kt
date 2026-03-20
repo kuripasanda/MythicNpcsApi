@@ -1,12 +1,17 @@
 package com.github.kuripasanda.mythicnpcsapi
 
-import com.github.kuripasanda.mythicnpcsapi.mixin.FabricLoaderMixin
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.loader.api.FabricLoader
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents
+import net.minecraft.server.MinecraftServer
 
-object MythicNpcsApiEntry : ModInitializer, MythicNpcsApi {
+object MythicNpcsApiEntry : ModInitializer {
+
+    var server: MinecraftServer? = null
+        private set
 
     override fun onInitialize() {
-        (FabricLoader.getInstance() as FabricLoaderMixin).`mythicNpcsApi$setMythicNpcsApi`(this)
+        ServerLifecycleEvents.SERVER_STARTING.register { server ->
+            this.server = server
+        }
     }
 }
