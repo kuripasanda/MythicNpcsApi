@@ -2,13 +2,13 @@ package com.github.kuripasanda.mythicnpcsapi.mixin;
 
 import com.github.kuripasanda.mythicnpcsapi.MinecraftServerBridge;
 import com.github.kuripasanda.mythicnpcsapi.MythicNpcsApi;
-import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.impl.FabricLoaderImpl;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(FabricLoader.class)
-public class FabricLoaderMixin implements MinecraftServerBridge {
+@Mixin(value = FabricLoaderImpl.class, remap = false )
+public class FabricLoaderImplMixin implements MinecraftServerBridge {
 
     @Unique
     protected MythicNpcsApi mythicNpcsApi$api;
