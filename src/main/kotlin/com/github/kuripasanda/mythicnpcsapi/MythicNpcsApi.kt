@@ -1,6 +1,5 @@
 package com.github.kuripasanda.mythicnpcsapi
 
-import com.github.kuripasanda.mythicnpcsapi.mixin.FabricLoaderImplMixin
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpc
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpcType
 import com.github.kuripasanda.mythicnpcsapi.model.NpcPosition
