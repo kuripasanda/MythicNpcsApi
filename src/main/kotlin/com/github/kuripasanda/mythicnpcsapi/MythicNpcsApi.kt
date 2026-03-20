@@ -19,6 +19,16 @@ interface MythicNpcsApi {
 
 
     /**
+     * 全てのNPCを取得します。
+     */
+    fun getAllNpcs(): List<MythicNpc>
+
+    /**
+     * IDに対応するNPCを取得します。
+     */
+    fun getNpc(id: String): MythicNpc?
+
+    /**
      * NPCを作成します。
      * @throws AlreadyExistsNpcException 同じIDのNPCが既に存在する場合にスローされます。
      */

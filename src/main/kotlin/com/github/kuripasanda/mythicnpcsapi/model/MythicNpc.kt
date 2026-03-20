@@ -19,7 +19,7 @@ import java.util.UUID
  * @param dataPerPlayer プレイヤーごとのNPCデータのマップ（キーはプレイヤーのUUID）
  */
 class MythicNpc(
-    var id: String,
+    val id: String,
     var type: MythicNpcType,
     var entityId: Int,
     var commonData: Data,
