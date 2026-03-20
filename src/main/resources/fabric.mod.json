@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "mythicnpcsapi",
+  "version": "${version}",
+  "name": "MythicNpcsApi",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/mythicnpcsapi/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [],
+    "main": [
+      {
+        "value": "MythicNpcsApiEntry",
+        "adapter": "kotlin"
+      }
+    ]
+  },
+  "mixins": [
+    "mythicnpcsapi.mixins.json",
+    {
+      "config": "mythicnpcsapi.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
