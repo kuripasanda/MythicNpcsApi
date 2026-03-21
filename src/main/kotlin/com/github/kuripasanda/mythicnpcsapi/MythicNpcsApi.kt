@@ -1,5 +1,6 @@
 package com.github.kuripasanda.mythicnpcsapi
 
+import com.github.kuripasanda.mythicnpcsapi.mixin.FabricLoaderImplMixin
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpc
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpcType
 import com.github.kuripasanda.mythicnpcsapi.model.NpcPosition
@@ -12,7 +13,7 @@ interface MythicNpcsApi {
     companion object {
         @JvmStatic
         fun getInstance(): MythicNpcsApi {
-            return (FabricLoader.getInstance() as MinecraftServerBridge).`mythicNpcsApi$getMythicNpcsApi`()
+            return (FabricLoader.getInstance() as FabricLoaderImplMixin).`mythicNpcsApi$getMythicNpcsApi`()
         }
     }
 
