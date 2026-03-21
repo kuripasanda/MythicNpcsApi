@@ -13,10 +13,15 @@
     "client": [],
     "main": [
       {
-        "value": "MythicNpcsApiEntry",
+        "value": "com.github.kuripasanda.mythicnpcsapi.MythicNpcsApiEntry",
         "adapter": "kotlin"
       }
     ]
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/server/MinecraftServer": ["com/github/kuripasanda/mythicnpcsapi/MinecraftServerBridge"]
+    }
   },
   "mixins": [
     "mythicnpcsapi.mixins.json",

@@ -10,6 +10,7 @@ object MythicNpcsApiEntry : ModInitializer {
         private set
 
     override fun onInitialize() {
+
         ServerLifecycleEvents.SERVER_STARTING.register { server ->
             this.server = server
         }

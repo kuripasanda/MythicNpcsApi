@@ -1,4 +1,4 @@
-package exception
+package com.github.kuripasanda.mythicnpcsapi.exception
 
 /**
  * NPCのIDが既に存在する場合にスローされる例外クラス。

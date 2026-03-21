@@ -1,7 +1,7 @@
 {
-  "required": true,
+  "required": false,
   "minVersion": "0.8",
-  "package": "com.kuripasanda.mythicnpcsapi.mixin.client",
+  "package": "com.github.kuripasanda.mythicnpcsapi.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
   ],

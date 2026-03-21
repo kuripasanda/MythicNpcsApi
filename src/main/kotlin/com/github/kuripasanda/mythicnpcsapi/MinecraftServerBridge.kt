@@ -1,9 +1,13 @@
 package com.github.kuripasanda.mythicnpcsapi
 
+import java.util.Optional
+
 interface MinecraftServerBridge {
 
-    fun `mythicNpcsApi$getMythicNpcsApi`(): MythicNpcsApi
+    fun `mythicNpcsApi$getMythicNpcsApi`(): Optional<MythicNpcsApi> {
+        return Optional.empty()
+    }
 
-    fun `mythicNpcsApi$setMythicNpcsApi`(api: MythicNpcsApi)
+    fun `mythicNpcsApi$setMythicNpcsApi`(api: MythicNpcsApi) {}
 
 }
