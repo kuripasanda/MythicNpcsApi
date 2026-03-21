@@ -4,6 +4,7 @@ import com.github.kuripasanda.mythicnpcsapi.model.MythicNpc
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpcType
 import com.github.kuripasanda.mythicnpcsapi.model.NpcPosition
 import com.github.kuripasanda.mythicnpcsapi.exception.AlreadyExistsNpcException
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.server.level.ServerPlayer
 
 interface MythicNpcsApi {
@@ -11,14 +12,13 @@ interface MythicNpcsApi {
     companion object {
         @JvmStatic
         fun getInstance(): MythicNpcsApi {
-            val server = MythicNpcsApiEntry.server ?: throw RuntimeException("The API will be available once the Minecraft server is up and running!")
-            return (server as MinecraftServerBridge).`mythicNpcsApi$getMythicNpcsApi`().get()
+            val api = FabricLoader.getInstance().objectShare.get("mythicNpcsApi") ?: throw RuntimeException("The API has not been initialized yet!")
+            return api as? MythicNpcsApi ?: throw RuntimeException("The API instance is not of the correct type!")
         }
 
         @JvmStatic
         fun setInstance(api: MythicNpcsApi) {
-            val server = MythicNpcsApiEntry.server ?: throw RuntimeException("The API can be initialized after the Minecraft server has started!")
-            (server as MinecraftServerBridge).`mythicNpcsApi$setMythicNpcsApi`(api)
+            FabricLoader.getInstance().objectShare.put("mythicNpcsApi", api)
         }
     }
 
