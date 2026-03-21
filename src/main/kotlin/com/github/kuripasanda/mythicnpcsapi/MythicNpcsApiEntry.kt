@@ -6,6 +6,8 @@ import net.minecraft.server.MinecraftServer
 
 object MythicNpcsApiEntry : ModInitializer {
 
+    const val MOD_ID = "mythicnpcsapi"
+
     var server: MinecraftServer? = null
         private set
 

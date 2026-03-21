@@ -3,6 +3,7 @@ package com.github.kuripasanda.mythicnpcsapi
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpc
 import com.github.kuripasanda.mythicnpcsapi.model.MythicNpcType
 import com.github.kuripasanda.mythicnpcsapi.model.NpcPosition
+import com.github.kuripasanda.mythicnpcsapi.MythicNpcsApiEntry.MOD_ID
 import com.github.kuripasanda.mythicnpcsapi.exception.AlreadyExistsNpcException
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.server.level.ServerPlayer
@@ -12,13 +13,13 @@ interface MythicNpcsApi {
     companion object {
         @JvmStatic
         fun getInstance(): MythicNpcsApi {
-            val api = FabricLoader.getInstance().objectShare.get("mythicNpcsApi") ?: throw RuntimeException("The API has not been initialized yet!")
+            val api = FabricLoader.getInstance().objectShare.get("${MOD_ID}:api") ?: throw RuntimeException("The API has not been initialized yet!")
             return api as? MythicNpcsApi ?: throw RuntimeException("The API instance is not of the correct type!")
         }
 
         @JvmStatic
         fun setInstance(api: MythicNpcsApi) {
-            FabricLoader.getInstance().objectShare.put("mythicNpcsApi", api)
+            FabricLoader.getInstance().objectShare.put("${MOD_ID}:api", api)
         }
     }
 
